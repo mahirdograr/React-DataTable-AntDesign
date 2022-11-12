@@ -11,4 +11,8 @@ export const baseManager = {
 
     return responseData;
   },
+
+  delete: async (url, id) => {
+    await axios.delete(API_URL + url + id);
+  },
 };
