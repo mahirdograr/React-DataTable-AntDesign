@@ -1,12 +1,20 @@
 import { Form, Input, Button } from "antd";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { baseManager } from "../../../network/baseManager";
 
 const AddCategory = () => {
+  let navigate = useNavigate;
+
   const onFinish = (values) => {
-    baseManager.add("/categories", values).then((data) => {
-      console.log("data", data);
-    });
+    baseManager
+      .add("/categories", values)
+      .then((data) => {
+        console.log("data", data);
+      })
+      .finally(() => {
+        navigate("/admin/categories");
+      });
   };
 
   return (
