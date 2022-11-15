@@ -6,7 +6,12 @@ import { Content, Footer, Header } from "antd/lib/layout/layout";
 import { baseManager } from "./network/baseManager";
 import Home from "./pages/admin/home/Home";
 import CategoryList from "./pages/admin/category/CategoryList";
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
+import AddCategory from "./pages/admin/category/AddCategory";
+import ProductList from "./pages/admin/product/ProductList";
+import AddProduct from "./pages/admin/product/AddProduct";
+import SupplierList from "./pages/admin/supplier/SupplierList";
+import AddSupplier from "./pages/admin/supplier/AddSupplier";
 
 function App() {
   useEffect(() => {
@@ -20,15 +25,27 @@ function App() {
       <Layout>
         <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
           <div className="logo" />
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={["2"]}
-            items={new Array(3).fill(null).map((_, index) => ({
-              key: String(index + 1),
-              label: `nav ${index + 1}`,
-            }))}
-          />
+
+          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={[0]}>
+            <Menu.Item>
+              <Link to="/admin/categories">CategoryList</Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/admin/addcategory">Add Category</Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/admin/product">ProductList</Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/admin/addproduct">Add Product</Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/admin/supplier">Supplier</Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to="/admin/addsuppliers">Add Supplier</Link>
+            </Menu.Item>
+          </Menu>
         </Header>
 
         <Content
@@ -42,6 +59,11 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/admin/categories" element={<CategoryList />} />
+              <Route path="/admin/addcategory" element={<AddCategory />} />
+              <Route path="/admin/product" element={<ProductList />} />
+              <Route path="/admin/addproduct" element={<AddProduct />} />
+              <Route path="/admin/supplier" element={<SupplierList />} />
+              <Route path="/admin/addsupplier" element={<AddSupplier />} />
             </Routes>
           </div>
         </Content>

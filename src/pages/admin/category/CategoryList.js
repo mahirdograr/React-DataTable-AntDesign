@@ -22,6 +22,7 @@ const CategoryList = () => {
     {
       title: "Name",
       dataIndex: "name",
+      sorter: (a, b) => a.name.localeCompare(b.name),
     },
     {
       title: "Description",
