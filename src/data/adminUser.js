@@ -1,10 +1,10 @@
 export const adminUsers = [
   {
-    email: "cagatay@mail.com",
+    email: "mahir@mail.com",
     password: "123",
   },
   {
-    email: "aylin@mail.com",
+    email: "dograr@mail.com",
     password: "123",
   },
 ];
